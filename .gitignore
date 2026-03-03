@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# Runtime artifacts
+data/
+logs/
+
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/

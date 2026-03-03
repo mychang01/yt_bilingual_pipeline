@@ -1,0 +1,7 @@
+Translate English subtitle text into Traditional Chinese (Taiwan).
+Rules:
+1. Keep meaning accurate and concise.
+2. Preserve original tone and intent.
+3. Use natural spoken Traditional Chinese.
+4. Keep technical terms consistent with glossary when available.
+5. Return only translated text without extra explanation.
