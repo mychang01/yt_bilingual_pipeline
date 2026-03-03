@@ -1,7 +1,10 @@
-# YouTube 雙語字幕流程（EN -> ZH）
+# YouTube 雙語字幕流程（EN -> Traditional Chinese）
 
 將 YouTube 影片或本地音訊轉為中英雙語字幕的可執行流程。  
-本專案使用 `yt-dlp` 下載/擷取字幕、OpenAI Whisper 做語音轉寫、GPT 產生中文字幕，最終輸出 `.srt` 與 `.json`。
+本專案使用 `yt-dlp` 下載/擷取字幕、OpenAI Whisper 做語音轉寫、GPT 產生繁體中文字幕，最終輸出 `.srt` 與 `.json`。  
+
+An executable pipeline that converts YouTube videos or local audio into bilingual English + Traditional Chinese subtitles.  
+This project uses `yt-dlp` for subtitle/audio retrieval, OpenAI Whisper for transcription, and GPT for Traditional Chinese translation, with final outputs in `.srt` and `.json`.
 
 ## 專案簡介（繁體中文）
 
@@ -10,7 +13,7 @@
 1. 優先讀取 YouTube 原生字幕（含自動字幕）
 2. 若無字幕則下載音訊並執行 ASR（Whisper）
 3. 清洗英文字幕（移除口頭禪、修正時間軸、切分長句）
-4. 翻譯為中文（可套用術語表）
+4. 翻譯為繁體中文（可套用術語表）
 5. 輸出雙語結果（SRT + JSON）
 
 適合情境：雙語學習、內容在地化、課程逐字稿、短影音字幕製作。
@@ -22,7 +25,7 @@ This project is a practical pipeline for generating bilingual subtitles:
 1. Try native YouTube subtitles first
 2. Fallback to audio download + Whisper ASR if subtitles are unavailable
 3. Normalize subtitle segments (filler removal, timestamp fixing, long-line split)
-4. Translate to Chinese with prompt + glossary
+4. Translate to Traditional Chinese with prompt + glossary
 5. Export bilingual outputs as `.srt` and `.json`
 
 ## 功能特色
