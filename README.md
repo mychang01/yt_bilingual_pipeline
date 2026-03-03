@@ -69,6 +69,35 @@ yt_bilingual_pipeline/
 └── logs/                       # 預留日誌資料夾
 ```
 
+## Project Structure (English)
+
+```text
+yt_bilingual_pipeline/
+├── main.py                     # CLI entrypoint and pipeline orchestration
+├── config.py                   # .env loading, model/path/retry settings
+├── requirements.txt            # Python dependencies
+├── .env.example                # Environment variable template
+├── prompts/
+│   └── translate_prompt.txt    # Translation prompt template
+├── terminology/
+│   └── glossary.json           # Domain glossary for translation consistency
+├── core/
+│   ├── __init__.py
+│   ├── downloader.py           # YouTube subtitle/audio retrieval (yt-dlp)
+│   ├── asr.py                  # Whisper transcription client
+│   ├── normalizer.py           # Subtitle cleanup and timestamp normalization
+│   ├── translator.py           # GPT translation
+│   ├── assembler.py            # Bilingual SRT/JSON assembly
+│   └── utils.py                # Retry, JSON, and time-format helpers
+├── data/
+│   ├── raw/                    # Downloaded subtitle files (.vtt/.srt)
+│   ├── audio/                  # Downloaded audio artifacts
+│   ├── normalized/             # Normalized subtitle JSON
+│   ├── translated/             # Translated subtitle JSON
+│   └── output/                 # Final bilingual outputs (.srt/.json)
+└── logs/                       # Reserved log directory
+```
+
 ## 流程圖（Processing Flow）
 
 ```text
@@ -156,6 +185,36 @@ python3 main.py --folder urls.txt
 ```
 
 ### 3. 本地音訊檔
+
+```bash
+python3 main.py --audio /path/to/audio.mp3 --name custom_output_name
+```
+
+## Usage (English)
+
+### 1. Process a single YouTube URL
+
+```bash
+python3 main.py --url "https://www.youtube.com/watch?v=VIDEO_ID"
+```
+
+### 2. Process a batch URL file
+
+`urls.txt` example:
+
+```txt
+https://www.youtube.com/watch?v=AAAA
+https://www.youtube.com/watch?v=BBBB
+# comment line
+```
+
+Run:
+
+```bash
+python3 main.py --folder urls.txt
+```
+
+### 3. Process a local audio file
 
 ```bash
 python3 main.py --audio /path/to/audio.mp3 --name custom_output_name
